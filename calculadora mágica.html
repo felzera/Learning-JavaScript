@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A Calculadora Mágica</title>
+    <style>
+        h1{
+            font:normal 50pt verdana;
+            text-align: center;
+        }
+        body{
+            background-color: yellow;
+            font:normal 30pt Impact;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+    <h1>Boa noite!, esse site vai ser seu <strong>maior conselheiro!</strong></h1>
+    <script>
+        var nome = String(window.prompt('Olá! Qual é seu nome? '))
+        var num = Number.parseFloat(window.prompt('Qual é seu número favorito? '))
+        var idade = Number.parseInt(window.prompt('Quantos anos você tem? '))
+        var nota = Number.parseFloat(window.prompt('Qual foi sua pior nota na Escola? '))
+
+        var x0 = num*0
+        var x1 = num*1
+        var x2 = num*2
+        var x3 = num*3
+        var x4 = num*4
+        var x5 = num*5
+        var x6 = num*6
+        var x7 = num*7
+        var x8 = num*8
+        var x9 = num*9
+        var x10 = num*10
+
+        var quad = num**2//Tentei fazer de raiz quadrada porém existe alguns códigos envolvidos que eu não aprendi ainda, então escolhi não fazer.
+        var mais1 = num+1
+        var menos1 = num-1
+
+        var maioridade = idade >= 18 ? 'Maior' : 'Menor'
+        var notaboa = nota >= 4.5 ? 'Mito' : 'Bosta'
+
+        document.write(`Olá <strong>${nome}!</strong>, seu número favorito é <strong>${num}</strong>, você tem <strong>${idade}</strong> anos e sua pior nota na escola foi <strong>${nota}</strong>.`)
+        document.write('<br>')
+        document.write('<br>A tabuada do seu número preferido é:')
+        document.write('<br>')
+        document.write(`<br><strong>${x0}</strong>`)
+        document.write(`<br><strong>${x1}</strong>`)
+        document.write(`<br><strong>${x2}</strong>`)
+        document.write(`<br><strong>${x3}</strong>`)
+        document.write(`<br><strong>${x4}</strong>`)
+        document.write(`<br><strong>${x5}</strong>`)
+        document.write(`<br><strong>${x6}</strong>`)
+        document.write(`<br><strong>${x7}</strong>`)
+        document.write(`<br><strong>${x8}</strong>`)
+        document.write(`<br><strong>${x9}</strong>`)
+        document.write(`<br><strong>${x10}</strong>`)
+        document.write('<br>')
+        document.write(`<br>O sucessor do seu número é <strong>${mais1}</strong>.`)
+        document.write(`<br>O antecessor do seu número é <strong>${menos1}</strong>.`)
+        document.write(`<br> Seu número ao quadrado é: <strong>${quad}</strong>.`)
+        document.write('<br>')
+        document.write(`<br>Você infelizmente é <strong>${maioridade}</strong> de Idade.`)
+        document.write('<br>')
+        document.write(`<br>De acordo com sua pior nota na escola, você é um <strong>${notaboa}</strong>.`)
+        document.write('<br>')
+        document.write(`<br>Foi muito bom ter passado esse tempo com você <strong>${nome}</strong>! Boa sorte e que você deixe de ser um <strong>${notaboa}</strong>, pelo bem maior da sociedade! Eu te amo pra um caralho!`)
+    </script>
+</body>
+</html>

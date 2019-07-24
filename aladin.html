@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>O Gênio da Lâmpada</title>
+    <style>
+        body{
+            background-color: cadetblue;
+            font:normal 30pt Verdana;
+            text-align: center;
+        }
+        h1{
+            font:normal 60pt Impact;
+            text-align: center;
+        }
+        p{
+            font:normal 40pt Impact;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>O Gênio da Lâmpada</h1>
+    <p>O Gênio irá acertar quantas letras tem a sua palavra(misteriosamente).</p>
+    <script>
+        var palavra = String(window.prompt('Escreva uma palavra que o Aladin irá acertar quantas letras ela tem...'))
+        document.write(`A sua palavra é <strong>${palavra.toUpperCase()}</strong>`)
+        document.write(`<br>A sua palavra tem... <strong>${palavra.length}</strong> letras!`)
+    </script>
+</body>
+</html>
