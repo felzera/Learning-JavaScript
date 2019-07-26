@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa de médias</title>
+    <style>
+        body{
+            font: normal 30pt Calibri;
+            text-align: center;
+            background-color: yellow;
+        }
+        h1{
+            color: white;
+            font: normal 50pt Tahoma;
+            background-color: black;
+        }
+        p{
+            font: normal 25pt Verdana;
+        }
+        input#nota1{
+            width: 100px;
+        }
+        input#nota2{
+            width: 100px;
+        }
+        input#calculodasnotas{
+            width: 100px;
+            height: 30px;
+        }
+        div#calculo{
+            font:normal 20pt Arial;
+            margin-top: 50px;
+            background-color: brown;
+            line-height: 40px;
+        }
+        p#materiatxt{
+            font:normal 30px Arial;
+            background-color: red;
+        }
+        p#notastxt{
+            font:normal 30px Arial;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quanto você precisa para passar no terceiro Bimestre?</h1>
+    <p>Esse programa vai dizer quanto você precisa para passar no terceiro bimestre do Band.</p><br>
+    <p id="materiatxt">Qual matéria você quer calcular?</p>
+    <input type="text" name="materia" id="materia">
+    <input type="button" value="Confirmar" id="confirmar">
+    <div id="texto"></div>
+
+    <script>
+            
+        function calcular(){
+            var materia = window.document.querySelector('input#materia')
+            var materiafinal = String(materia.value)
+            var nota1txt = window.document.querySelector('input#nota1')
+            var nota2txt = window.document.querySelector('input#nota2')
+            var calculo = window.document.querySelector('div#calculo')
+            var nota1bi = Number.parseFloat(nota1txt.value)
+            var nota2bi = Number.parseFloat(nota2txt.value)
+            var calculofinal = ([49 - [(nota1bi*2) + (nota2bi*2)]] / 3).toFixed(2)
+          
+            calculo.innerHTML = `Você precisa de <strong>${calculofinal}</strong> para passar em <strong>${materiafinal}</strong> no terceiro bimestre.`
+            calculo.style.background = 'green'
+        }
+
+        var materia = window.document.querySelector('input#materia')
+        var materiafinal = String(materia.value)
+        var textofinal = window.document.querySelector('div#texto')
+
+        confirmar.addEventListener('click', text)
+    
+        function text(){
+        var materia = window.document.querySelector('input#materia')
+        var materiafinal = String(materia.value)
+        var textofinal = window.document.querySelector('div#texto')
+        texto.innerHTML = `<p id="notastxt">No <strong>primeiro espaço</strong>, digite a nota que você tirou em <strong>${materiafinal}</strong> no <strong>primeiro bimestre</strong>, e no <strong>segundo espaço</strong> digite a nota que você tirou em <strong>${materiafinal}</strong> no <strong>segundo bimestre</strong>.</p>
+                         <input type="text" name="nota1" id="nota1">
+                            <input type="text" name="nota2" id="nota2">
+                         <input type="button" value="Calcular" id="calculodasnotas" onclick="calcular()">
+                             <div id="calculo">Quanto você precisa?</div>`
+        }
+    </script>
+</body>
+</html>
