@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time de Futebol</title>
+</head>
+<body>
+    <h1>Esse site vai dizer sua sexualidade de acordo com seu time de Futebol</h1>
+    Qual é seu time de Futebol (Ex.: Palmeiras): <input type="text" name="txttime" id="txttime"><br><br>
+    <input type="button" value="Continuar" id="butfut">
+    <div id="divres"></div>
+
+    <script>    
+        var botfut = window.document.querySelector('input#butfut')
+        botfut.addEventListener('click', sex)
+
+        function sex(){
+            var timetxt = window.document.querySelector('input#txttime')
+            var time = String(timetxt.value)
+            var res = window.document.querySelector('div#divres')
+            res.innerHTML = `<p>Olá! Você torçe para o <strong>${time}</strong>!</p>`
+                if (time == 'Corinthians'){
+                    res.innerHTML += `<p>De acordo com seu time, você é do bando de loucos!`
+                }
+                else if (time == 'Palmeiras'){
+                    res.innerHTML += `<p>De acordo com seu time, você é um porco</p>`
+                }
+                else if (time == 'São Paulo'){
+                    res.innerHTML += `<p>De acordo com seu time, você é um viado</p>`
+                }
+                else if (time == 'Santos'){
+                    res.innerHTML += `<p>De acordo com seu time, você é um peixe</p>`
+                }
+                else if (time != 'Corinthians', 'Santos', 'Palmeiras', 'São Paulo'){
+                    res.innerHTML += `<p>Seu time é pequeno</p>`
+                }
+        }
+    </script>
+</body>
+</html>

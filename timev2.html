@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time de Futebol</title>
+</head>
+<body>
+    <h1>Esse site vai dizer suas principais características de acordo com seu time de Futebol!</h1>
+    Qual é seu time de Futebol (Ex.: Palmeiras): <input type="text" name="txttime" id="txttime"><br><br>
+    <input type="button" value="Continuar" id="butfut">
+    <div id="divres"></div>
+
+    <script>    
+        var botfut = window.document.querySelector('input#butfut')
+        botfut.addEventListener('click', sex)
+
+        function sex(){
+            var timetxt = window.document.querySelector('input#txttime')
+            var time = String(timetxt.value)
+            var res = window.document.querySelector('div#divres')
+            res.innerHTML = `<p>Olá! Você torçe para o <strong>${time}</strong>!</p>`
+            switch(time){
+                case 'Corinthians':
+                    res.innerHTML += `De acordo com seu time você é do bando de loucos!`
+                    break
+                case 'Palmeiras':
+                    res.innerHTML += `De acordo com seu time você é um porco!`
+                    break
+                case 'São Paulo':
+                    res.innerHTML += `De acordo com seu time você é bambi!`
+                    break
+                case 'Santos':
+                    res.innerHTML += `De acordo com seu time você é uma sardinha!`
+                    break
+                case 'Flamengo':
+                    res.innerHTML += `De acordo com seu time você só fica no cheirinho!`
+                    break
+                case 'Vasco':
+                    res.innerHTML += `De acordo com seu time você é tri-rebaixado!`
+                    break
+                default :
+                    res.innerHTML += `Seu time é menor que a Portuguesa!`
+                    break
+            }
+        }
+    </script>
+</body>
+</html>
