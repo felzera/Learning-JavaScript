@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agência de Turismo</title>
+</head>
+<body>
+    <h1>Agência de turismo Fel.</h1>
+    Onde você mora? <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Confirmar" id="butpais">
+    <div id="divres"></div>
+
+    <script>
+   
+        var botpais = window.document.querySelector('input#butpais')
+        botpais.addEventListener('click', morar)
+
+        function morar(){
+            var paistxt = window.document.querySelector('input#txtpais')
+            var res = window.document.querySelector('div#divres')
+            var pais = String(paistxt.value)
+            res.innerHTML = `<p>Você mora no <strong>${pais}</strong>!</p>`
+
+            if (pais != 'Brasil'){res.innerHTML += `<p>Portanto você é <strong>Estrangeiro!</strong></p>`}
+            else{res.innerHTML += `<p>Portanto você é <strong>Brasileiro!</strong></p>`}
+        }
+
+    </script>
+</body>
+</html>
