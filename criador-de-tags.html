@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Criador de tags</title>
+</head>
+<body>
+    <h1>Esse site vai adicionar as tags mais famosas do HTML sozinho.</h1>
+    <input type="button" value="<p>" id="botp" onclick="criarp()">
+    <input type="button" value="<div>" id="botdiv" onclick="criardiv()">
+    <input type="button" value="<h2>" id="both2" onclick="criarh2()">
+    <input type="button" value="img" id="botimg" onclick="criarimg()">
+    <div id="res"></div>
+
+    <script>
+
+        function criarp(){
+            var res = window.document.querySelector('div#res')
+            var p = window.document.createElement('p')
+            p.setAttribute ('id', 'pcriado')
+            res.innerHTML = `Um elemento p foi criado abaixo:`
+            res.appendChild(p)
+            p.innerHTML = `Um elemento p foi <strong>criado!</strong>`
+
+        }
+        function criardiv(){
+            var res = window.document.querySelector('div#res')
+            var div = window.document.createElement('div')
+            div.setAttribute ('id', 'divcriado')
+            res.innerHTML = `Um elemento div foi criado abaixo:`
+            res.appendChild(div)
+            div.innerHTML = `Uma div com uma input foi criada! <input></input>`
+        }
+        function criarh2(){
+            var res = window.document.querySelector('div#res')
+            var h2 = window.document.createElement('h2')
+            h2.setAttribute ('id', 'h2criado')
+            res.innerHTML = `Um elemento h2 foi criado!`
+            res.appendChild(h2)
+            h2.innerText = 'Olá Mundo!'
+        }
+        function criarimg(){
+            var res = window.document.querySelector('div#res')
+            var img = window.document.createElement('img')
+            img.setAttribute('id', 'imgcriado')
+            img.setAttribute('src', 'foto-adulto-m.png')
+            res.innerHTML = `Um elemento img foi criado!`
+            res.appendChild(img)
+            
+        }
+    </script>
+</body>
+</html>
