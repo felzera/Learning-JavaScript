@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Com o tutão não tem papinho.</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font: normal 30px Impact;
+            text-align: center;
+        }
+        header {
+            background-color: yellow;
+            color: black;
+        }
+        p#pimagem{
+            text-align: center;
+        }
+        img#fototutao{
+            width: 300px;
+            border-radius: 40px
+        }
+        button#botaopapai{
+            display: none;
+            font: normal 20px Verdana;
+            border-radius: 10px;
+            height: 40px;
+            color: white;
+            background-color: blue;
+            margin: auto;
+        }
+        p#pfrase1{
+            display: none;
+            font: normal 20px Arial;
+            text-justify: auto;
+
+        }
+        p#pfrase2{
+            display: none;
+            font: normal 20px Arial;
+            text-justify: auto;
+
+        }
+        p#pfrase3{
+            display: none;
+            font: normal 20px Arial;
+            text-justify: auto;
+        }
+        p#pfraseespecial{
+            display: none;
+            font: normal 20px Arial;
+            text-justify: auto;
+        }
+        button#botaocontinuarfrases{
+            display: none;
+            font: normal 20px Verdana;
+            border-radius: 10px;
+            height: 40px;
+            color: white;
+            background-color: blue;
+            margin: auto;
+        }
+        div#quizdotuty{
+            display: none;
+            text-align: center;
+            font:normal 20px Verdana;
+            color: chocolate;
+        }
+        p#resultadoquiz{
+            display: none;
+            font: normal 20px Arial;
+        }
+        p#ultimop{
+            display: none;
+            font: normal 20px Arial;
+        }
+        button#botaofinal{
+            display: none;
+            font: normal 20px Verdana;
+            border-radius: 10px;
+            height: 40px;
+            color: white;
+            background-color: blue;
+            margin: auto;
+        }
+        button#validarquiz{
+            display: none;
+            font: normal 20px Verdana;
+            border-radius: 10px;
+            height: 40px;
+            color: white;
+            background-color: blue;
+            margin: auto;
+        }
+        button#botaoirquiz{
+            display: none;
+            font: normal 20px Verdana;
+            border-radius: 10px;
+            height: 40px;
+            color: white;
+            background-color: blue;
+            margin: auto;
+        }
+        footer{
+            font: normal 15px Arial;
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Tutey's Game</h1></header>
+    <p id='pimagem'><img src="papaiputo.png" alt="" id='fototutao'></p>
+    <div id='res'>E ai seus pangaré!</div>
+    <p id='pvazio'><div id='divbotao'><button id='botaopapai'>Continuar</button></div><p id='pfrase3'>"O tutão faz tudo para todo mundo mas ninguém faz NADA para ele"</p><p id='pfrase2'>"Bora pro surf!"</p><p id='pfrase1'>"Por favor, parem de INFLACIONAR relações!"</p><p id='pfraseespecial'>Justo no dia dos pais...</p></p>
+    <div id='divbotaocontinuarfrases'><button id='botaocontinuarfrases'>Continuar</button></div>
+    <div id='quizdotuty'>
+        <input type="radio" name="radquiz" id="radquiz1">
+        <label for="radquiz1">Dando presentes para ele</label><br>
+        <input type="radio" name="radquiz" id="radquiz2">
+        <label for="radquiz2">Levando ele para surfar</label><br>
+        <input type="radio" name="radquiz" id="radquiz3">
+        <label for="radquiz3">Mostrando seu amor e compaixão com o tuty, dando abracos e falando o quanto você ama ele</label>
+    </div>
+    <p id='resultadoquiz'></p>
+    <p id='ultimop'></p>
+    <div id='divbotaofinal'><button id='botaofinal'>Terminar o Jogo</button></div>
+    <div id='divbotaovalidarquiz'><button id='validarquiz'>Validar Quiz</button></div>
+    <div id='divbotaoquiz'><button id="botaoirquiz">Ir ao quiz do tutão para ver se realmente o conhece</button></div><br>
+    <footer>&copy; Um desenvolvimento Samuel & Guilherme Felberg Games.</footer>
+    <script>
+        var fototutao = window.document.querySelector('img#fototutao')
+        var res = window.document.querySelector('div#res')
+        fototutao.addEventListener('mouseenter', entrar)
+        fototutao.addEventListener('mouseout', sair)
+
+
+        function entrar(){//Passar o mouse em cima e vai aparecer tutão na área, ele feliz e abre o botão começar.
+            fototutao.setAttribute('src', 'papaifeliz.png')
+            res.innerText = `Tutão na área`
+            window.document.querySelector('button#botaopapai').style.display = 'block';
+        }
+
+        function sair(){//Ao tirar o mouse da imagem, a funcao de cima (entrar) não será mais conseguida ser chamada.
+            fototutao.removeEventListener('mouseenter', entrar)
+        }
+
+        var botaopapai = window.document.querySelector('button#botaopapai')
+        botaopapai.addEventListener('click', frases)
+
+        function frases(){//Irá mostrar botões com as várias frases 'populares do meu pai' e irá mudar a foto dele denovo.
+            let botaopapaisumir = window.document.querySelector('button#botaopapai').style.display = 'none'
+            let frase3 = window.document.querySelector('p#pfrase3').style.display = 'block'
+            let frase2 = window.document.querySelector('p#pfrase2').style.display = 'block'
+            let frase1 = window.document.querySelector('p#pfrase1').style.display = 'block'
+            res.innerHTML = 'Clique em uma das frases mais famosas do tutão e você seguirá em um caminho diferente na nossa jornada!'
+            fototutao.setAttribute('src', 'papaifeliz2.png')
+        }
+
+        var frase1 = window.document.querySelector('p#pfrase1')
+        var frase2 = window.document.querySelector('p#pfrase2')
+        var frase3 = window.document.querySelector('p#pfrase3')
+
+        frase3.addEventListener('click', clicarfrase3)
+        frase2.addEventListener('click', clicarfrase2)
+        frase1.addEventListener('click', clicarfrase1)
+
+        function clicarfrase3(){//Irá contar a história da frase 3 e irá colocar uma foto do tuty que mais representa essa frase
+            let frase2 = window.document.querySelector('p#pfrase2').style.display = 'none'
+            let frase1 = window.document.querySelector('p#pfrase1').style.display = 'none'
+            let frase3 = window.document.querySelector('p#pfrase3')
+            let botaocontinuarfrases = window.document.querySelector('button#botaocontinuarfrases').style.display = 'block'
+            res.innerText = 'O tuty faz TUDO para todo mundo, mas ninguém faz NADA para ele!'
+            res.style.color = 'blue'
+            frase3.innerText = 'Historia da frase: Essa frase foi se desenvolvendo ao longo do tempo. o Tuty sempre foi fazendo absolutamente TUDO para todo mundo mas injustiçado, não recebia o devido reconhecimento. Assim surgiu essa frase para as pessoas tomarem conciência de tudo que ele faz por nós! Nessa foto podemos ver a bravura do nosso herói ao dirigir por mais de 4 horas seus filhos para Ubatuba, mas ninguém nunca disse obrigado ou reconheceu o mérito do tutão. '
+            fototutao.setAttribute('src', 'papaidirigindo.png')
+            frase3.removeEventListener('click', clicarfrase3)
+        
+        }
+
+        function clicarfrase2(){//Irá contar a história da frase 2 e irá colocar uma foto do tuty que mais representa essa frase
+            let frase3 = window.document.querySelector('p#pfrase3').style.display = 'none'
+            let frase1 = window.document.querySelector('p#pfrase1').style.display = 'none'
+            let frase2 = window.document.querySelector('p#pfrase2')
+            let botaocontinuarfrases = window.document.querySelector('button#botaocontinuarfrases').style.display = 'block'
+            res.innerText = 'Bora pro Surf!'
+            res.style.color = 'gray'
+            frase2.innerText = 'Historia da frase: Todos nós sabemos da delicadeza do tutão na hora de chamar seus amigos e familiares para o surf de manhã. O nosso herói sempre batia a porta do quarto como se fosse um caminhão e na maior animação gritava "Bora pro surf!", assim essa frase ficou eternizada com nosso herói!'
+            fototutao.setAttribute('src', 'papaisurf2.png')
+            frase2.removeEventListener('click', clicarfrase2)
+        }
+
+        function clicarfrase1(){//Irá contar a história da frase 1 e irá colocar uma foto do tuty que mais representa essa frase
+            let frase3 = window.document.querySelector('p#pfrase3').style.display = 'none'
+            let frase2 = window.document.querySelector('p#pfrase2').style.display = 'none'
+            let frase1 = window.document.querySelector('p#pfrase1')
+            let botaocontinuarfrases = window.document.querySelector('button#botaocontinuarfrases').style.display = 'block'
+            res.innerText = 'Por favor, parem de INFLACIONAR relações!'
+            res.style.color = 'brown'
+            frase1.innerText = 'Historia da frase: O tutão como um ótimo pai, sempre desejou que a família esteja unida, em paz e feliz. E após uma discussão em Portugal, o Tutão viu os membros de sua família brigando, e para conciliar o grupo soltou essa pérola de frase: Parem de INFLACIONAR relações!'
+            fototutao.setAttribute('src', 'papaifamilia.png')
+            frase1.removeEventListener('click', clicarfrase1)
+        }
+
+        var botaocontinuarfrases = window.document.querySelector('button#botaocontinuarfrases')
+        botaocontinuarfrases.addEventListener('click', clicarfraseespecial)
+
+        function clicarfraseespecial(){//Irá contar a frase especial do meu pai, que é justo no dia dos pais e mostrar uma foto da família
+            let frase3 = window.document.querySelector('p#pfrase3').style.display = 'none'
+            let frase2 = window.document.querySelector('p#pfrase2').style.display = 'none'
+            let frase1 = window.document.querySelector('p#pfrase1').style.display = 'none'
+            let fraseespecial = window.document.querySelector('p#pfraseespecial').style.display = 'block'
+            let botaocontinuarfrases = window.document.querySelector('button#botaocontinuarfrases').style.display = 'none'
+            res.innerText = 'Frase especial:  Justo no dia dos pais...'
+            res.style.color = 'yellow'
+            pfraseespecial.innerText = 'Historia da frase: Essa frase poucos conhecem... Ela surgiu graças à sequência de injustiças e descasos com o Tutão no PRÓPRIO dia dos pais. Ela é especial pois no dia dos pais, o mínimo que o nosso herói tutinho quer é reconhecimento e amor da família.'
+            fototutao.setAttribute('src', 'papaidiadospais.png')
+            let botaoirquiz = window.document.querySelector('button#botaoirquiz').style.display = 'block'
+            botaocontinuarfrases.removeEventListener('click', clicarfraseespecial)
+        }
+        
+        var botaoquiz = window.document.querySelector('button#botaoirquiz')
+        botaoquiz.addEventListener('click', quizdotutao)
+
+        function quizdotutao(){//Agora chegou a parte do quiz do tutão onde nós iremos fazer a pergunta, qual é o melhor jeito de agradar o tutinho? e cada resposta levará a um caminho!
+            let fraseespecial = window.document.querySelector('p#pfraseespecial').style.display = 'none'
+            botaoquiz.style.display = 'none'
+            res.innerHTML = 'Quiz do tutão: <br>Qual é o melhor jeito de agradar o tutão nesse dia dos pais?'
+            res.style.color = 'white'
+            let quizdotuty = window.document.querySelector('div#quizdotuty').style.display = 'block'
+            fototutao.setAttribute('src', 'papaimafioso.png')
+            let botaovalidarquiz = window.document.querySelector('button#validarquiz').style.display = 'block'
+            let botaovalidarquizbot = window.document.querySelector('button#validarquiz')
+            botaovalidarquizbot.addEventListener('click', validarquiztuty)
+            function validarquiztuty(){//Essa função localiza sua resposta de acordo com o radio que você marcou e te levará para uma ação distinta.
+                let fperg = window.document.getElementsByName('radquiz')
+                if (fperg[0].checked){
+                    let divquiz = window.document.querySelector('div#quizdotuty').style.display = 'none'
+                    let botaovalidarquiz = window.document.querySelector('button#validarquiz').style.display = 'none'
+                    let resultadoquiz = window.document.querySelector('p#resultadoquiz').style.display = 'block'
+                    let resultadoquiz1 = window.document.querySelector('p#resultadoquiz')
+                    res.innerText = 'Lamentável!'
+                    res.style.color = 'red'
+                    resultadoquiz1.innerText = 'Você acabou de desapontar o tutão e perdeu bastante moral no dia dos pais, o tutão é um grandioso homem que não valoriza o material, Lamentável você não saber disso... Vai dar um abraço agora nele para recuperar a moral perdida!'
+                    fototutao.setAttribute('src', 'papaidesapontado.png')
+                    let botfinal = window.document.querySelector('button#botaofinal').style.display = 'block'
+                } else if (fperg[1].checked){
+                    let divquiz = window.document.querySelector('div#quizdotuty').style.display = 'none'
+                    let botaovalidarquiz = window.document.querySelector('button#validarquiz').style.display = 'none'
+                    let resultadoquiz = window.document.querySelector('p#resultadoquiz').style.display = 'block'
+                    let resultadoquiz1 = window.document.querySelector('p#resultadoquiz')
+                    res.innerText = 'Aeeeeee!'
+                    res.style.color = 'lime'
+                    resultadoquiz1.innerText = 'Parabéns! Você realmente sabe como presenciar o mestre Tuty, você sabe que ele é uma pessoa que valoriza passar seu tempo junto com as pessoas que ele mais ama! Vai dar um abraço em nosso herói para consagrar a moral adquirida nesse dia dos pais!'
+                    fototutao.setAttribute('src', 'papaifeliz4.png')
+                    let botfinal = window.document.querySelector('button#botaofinal').style.display = 'block'
+                } else if (fperg[2].checked){
+                    let divquiz = window.document.querySelector('div#quizdotuty').style.display = 'none'
+                    let botaovalidarquiz = window.document.querySelector('button#validarquiz').style.display = 'none'
+                    let resultadoquiz = window.document.querySelector('p#resultadoquiz').style.display = 'block'
+                    let resultadoquiz1 = window.document.querySelector('p#resultadoquiz')
+                    res.innerText = 'Hmmmmmmmmm, não sei não'
+                    res.style.color = 'yellow'
+                    resultadoquiz1.innerText = 'Se você marcou que agradar o tutão no dia dos pais seria demonstrar seu amor á ele abraçando-o ou falando o quanto ama ele quer dizer que você não faz isso casualmente. E o tutão merece ser amado todos os dias da vida dele e não só no dia dos pais. Vai dar um abraço nele para recuperar a moral que você deixou de ganhar no dia dos pais!'
+                    fototutao.setAttribute('src', 'papaimedio.png')
+                    let botfinal = window.document.querySelector('button#botaofinal').style.display = 'block'
+                }
+                botaoquiz.removeEventListener('click', quizdotutao)
+            }
+
+            var botaofinaljogo = window.document.querySelector('button#botaofinal')
+            botaofinaljogo.addEventListener('click', terminarjogo)
+            var resultadoquiz1 = window.document.querySelector('p#resultadoquiz')
+
+            function terminarjogo(){
+                let botfinaljogo = window.document.querySelector('button#botaofinal').style.display = 'none'
+                res.innerText = 'Parabens Tutão!!!'
+                res.style.color = 'white'
+                resultadoquiz1.innerText = 'Tutão, mesmo quem foi totalmente traíra e respondeu o quiz sobre você de forma incorretamente ou todo mundo que cometeu trairagem com vossa excelência, todos nós da família te amamos muito e queremos sempre o seu melhor para o resto da vida! Como bom amigo, mentor, pai, desejamos um grandissíssimo e a sua altura, ótimo Dia dos Pais!'
+                fototutao.setAttribute('src', 'papaiultima.png')
+            }
+        }
+
+       
+
+    </script>
+</body>
+</html>
